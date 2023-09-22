@@ -56,11 +56,17 @@ export const ChatbarSettings = () => {
         onClick={() => setIsSettingDialog(true)}
       />
 
-      {!serverSideApiKeyIsSet ? (
-        <Key apiKey={apiKey} onApiKeyChange={handleApiKeyChange} />
-      ) : null}
 
-      {!serverSidePluginKeysSet ? <PluginKeys /> : null}
+        <Key apiKey={apiKey} onApiKeyChange={handleApiKeyChange} />
+
+
+      <Key apiKey={apiKey} onApiKeyChange={onApiKeyChange} />
+
+      <PluginKeys
+        pluginKeys={pluginKeys}
+        onPluginKeyChange={onPluginKeyChange}
+        onClearPluginKey={onClearPluginKey}
+      />
 
       <SettingDialog
         open={isSettingDialogOpen}
